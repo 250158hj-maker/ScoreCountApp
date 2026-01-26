@@ -17,6 +17,7 @@ function mainProcess () {
     updateScoreAndSheet(this);
     const nowStatement = checkStatement(score1, score2, gamePoint);
     console.log(nowStatement)
+    // TODO：勝敗が確定したらCSSの変更と得点追加ボタンのロックを実行する。
 }
 
 function updateScoreAndSheet (button) {
