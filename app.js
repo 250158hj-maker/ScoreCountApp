@@ -5,9 +5,14 @@ const button1 = document.querySelector('#player1-button');
 const button2 = document.querySelector('#player2-button');
 const resetButton = document.querySelector('#reset-button');
 
-const WIN_PLAYER_1 = 'WINNER 1';
-const WIN_PLAYER_2 = 'WINNER 2';
-const PLAY_NOW = 'PLAY NOW'
+const WIN_PLAYER_1 = 'Player1';
+const WIN_PLAYER_2 = 'Player2';
+const PLAY_NOW = 'PlayNow'
+
+const WIN_BUTTON_COLOR = 'text-success';
+const LOSE_BUTTON_COLOR = 'text-danger';
+const PLAYER_BUTTON_DEFAULT = 'btn btn-primary';
+const RESET_BUTTON_DEFAULT = 'btn btn-secondary';
 
 let score1 = 0;
 let score2 = 0;
@@ -18,9 +23,16 @@ let gamePoint = 1;
  * 点数更新・ゲーム進行状況の取得・ゲーム終了時の画面更新を担う
  */
 function mainProcess () {
-    updateScoreAndSheet(this);
+    const eventButton = this;
+    updateScoreAndSheet(eventButton);
+    // リセットボタンの場合はスタイルしてゲームの終了
+    if (eventButton === resetButton) {
+        resetDisplyStyle();
+        return;
+    }
+
+    // リセットではない場合
     const nowStatement = checkStatement(score1, score2, gamePoint);
-    // TODO：勝敗が確定したらCSSの変更と得点追加ボタンのロックを実行する。
     switch (nowStatement) { 
         case WIN_PLAYER_1:
             updateDisplayStyle(WIN_PLAYER_1);
@@ -74,9 +86,29 @@ function checkStatement (score1, score2, gamePoint) {
     }
 }
 
+/**
+ * リセットボタンが押されたときのみ実行。スタイルを初期状態に戻す
+ */
+function resetDisplyStyle () {
+    sheet1.className = "";
+    sheet2.className = "";
+    button1.className = PLAYER_BUTTON_DEFAULT;
+    button2.className = PLAYER_BUTTON_DEFAULT;
+    resetButton.className = RESET_BUTTON_DEFAULT;
+}
 
+/**
+ * 勝敗が決定したときのみ実行。スタイルを変更する
+ * @param {String} statement - WIN_PlAYER1 or WIN_PLAYER_2
+ */
 function updateDisplayStyle (statement) {
-    console.log(statement);
+    if (statement === WIN_PLAYER_1) {
+        sheet1.classList.add(WIN_BUTTON_COLOR);
+        sheet2.classList.add(LOSE_BUTTON_COLOR);
+    } else {
+        sheet1.classList.add(LOSE_BUTTON_COLOR);
+        sheet2.classList.add(WIN_BUTTON_COLOR);
+    }
 }
 
 // ボタン操作監視
