@@ -51,6 +51,14 @@ function mainProcess() {
  * @param {Element} button - player1, player2, resetのいずれかのHTML要素
  */
 function updateScoreAndSheet(button) {
+  if (button === resetButton) {
+    score1 = 0;
+    score2 = 0;
+    sheet1.innerText = score1;
+    sheet2.innerText = score2;
+    return;
+  }
+
   switch (button) {
     case button1:
       score1 += 1;
@@ -60,11 +68,7 @@ function updateScoreAndSheet(button) {
       score2 += 1;
       sheet2.innerText = score2;
       break;
-    case resetButton:
-      score1 = 0;
-      score2 = 0;
-      sheet1.innerText = score1;
-      sheet2.innerText = score2;
+    default:
       break;
   }
 }
