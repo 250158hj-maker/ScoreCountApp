@@ -20,12 +20,13 @@ let gamePoint = 1;
 function mainProcess () {
     updateScoreAndSheet(this);
     const nowStatement = checkStatement(score1, score2, gamePoint);
-    console.log(nowStatement)
     // TODO：勝敗が確定したらCSSの変更と得点追加ボタンのロックを実行する。
     switch (nowStatement) { 
         case WIN_PLAYER_1:
+            updateDisplayStyle(WIN_PLAYER_1);
             break;
         case WIN_PLAYER_2:
+            updateDisplayStyle(WIN_PLAYER_2);
             break;
         default:
             // ゲーム続行
@@ -71,6 +72,11 @@ function checkStatement (score1, score2, gamePoint) {
     } else {
         return PLAY_NOW;
     }
+}
+
+
+function updateDisplayStyle (statement) {
+    console.log(statement);
 }
 
 // ボタン操作監視
