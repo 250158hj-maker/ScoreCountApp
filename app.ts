@@ -50,7 +50,7 @@ function updateScores(player: playerInfo, opponent: playerInfo): void {
     if (player.score === winningPoint) {
       isGameOver = true;
       player.display.classList.add(WINNER_STYLE);
-      opponent.display.classList.add("has-text-danger");
+      opponent.display.classList.add(LOSER_STYLE);
       player.button.disabled = true;
       opponent.button.disabled = true;
     }
@@ -59,15 +59,10 @@ function updateScores(player: playerInfo, opponent: playerInfo): void {
 
 function reset(): void {
   isGameOver = false;
-  player1.score = 0;
-  player2.score = 0;
-
-  player1.display.textContent = "0";
-  player2.display.textContent = "0";
-
-  player1.display.classList.remove(WINNER_STYLE, "has-text-danger");
-  player2.display.classList.remove(WINNER_STYLE, "has-text-danger");
-
-  player1.button.disabled = false;
-  player2.button.disabled = false;
+  for (let player of [player1, player2]) {
+    player.score = 0;
+    player.display.textContent = '0';
+    player.display.classList.remove(WINNER_STYLE, LOSER_STYLE);
+    player.button.disabled = false;
+  }
 }
