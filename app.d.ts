@@ -1,0 +1,19 @@
+declare const display1: Element;
+declare const display2: Element;
+declare const maxPoint: Element;
+declare const button1: Element;
+declare const button2: Element;
+declare const resetButton: Element;
+declare const winningScoreSelect: HTMLSelectElement;
+declare const WIN_PLAYER_1 = "Player1";
+declare const WIN_PLAYER_2 = "Player2";
+declare const PLAY_NOW = "PlayNow";
+declare const WIN_BUTTON_COLOR = "text-success";
+declare const LOSE_BUTTON_COLOR = "text-danger";
+declare const PLAYER_BUTTON_DEFAULT = "btn btn-primary";
+declare const RESET_BUTTON_DEFAULT = "btn btn-secondary";
+declare let score1: number;
+declare let score2: number;
+declare let winningPoint: number;
+declare let isGameOver: boolean;
+//# sourceMappingURL=app.d.ts.map
