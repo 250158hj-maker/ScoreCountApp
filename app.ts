@@ -4,7 +4,9 @@ const maxPoint = document.querySelector("#max-point")!;
 const button1 = document.querySelector("#player1-button")!;
 const button2 = document.querySelector("#player2-button")!;
 const resetButton = document.querySelector("#reset-button")!;
-const winningScoreSelect = document.querySelector('#winning-point')! as HTMLSelectElement;
+const winningScoreSelect = document.querySelector(
+  "#winning-point",
+)! as HTMLSelectElement;
 
 const WIN_PLAYER_1 = "Player1";
 const WIN_PLAYER_2 = "Player2";
@@ -15,10 +17,10 @@ const LOSE_BUTTON_COLOR = "text-danger";
 const PLAYER_BUTTON_DEFAULT = "btn btn-primary";
 const RESET_BUTTON_DEFAULT = "btn btn-secondary";
 
-let score1 : number = 0;
-let score2 : number = 0;
-let winningPoint : number = 3;
-let isGameOver : boolean = false;
+let score1: number = 0;
+let score2: number = 0;
+let winningPoint: number = 3;
+let isGameOver: boolean = false;
 
 button1.addEventListener("click", function () {
   if (!isGameOver) {
@@ -40,14 +42,17 @@ button2.addEventListener("click", function () {
   }
 });
 
-winningScoreSelect.addEventListener('change', function() {
+winningScoreSelect.addEventListener("change", function () {
   winningPoint = parseInt(this.value);
+  reset()
 });
 
-resetButton.addEventListener('click', function() {
+resetButton.addEventListener("click", reset);
+
+function reset() : void {
   isGameOver = false;
   score1 = 0;
   score2 = 0;
-  display1.textContent = '0';
-  display2.textContent = '0';
-});
+  display1.textContent = "0";
+  display2.textContent = "0";
+}

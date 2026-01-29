@@ -16,4 +16,5 @@ declare let score1: number;
 declare let score2: number;
 declare let winningPoint: number;
 declare let isGameOver: boolean;
+declare function reset(): void;
 //# sourceMappingURL=app.d.ts.map
