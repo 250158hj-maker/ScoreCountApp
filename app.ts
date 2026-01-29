@@ -46,8 +46,8 @@ function updateScores(player: playerInfo, opponent: playerInfo): void {
     player.display.textContent = player.score.toString();
     if (player.score === winningPoint) {
       isGameOver = true;
-      player.button.classList.add("has-text-success");
-      opponent.button.classList.add("has-text-danger");
+      player.display.classList.add("has-text-success");
+      opponent.display.classList.add("has-text-danger");
       player.button.disabled = true;
       opponent.button.disabled = true;
     }
@@ -59,11 +59,11 @@ function reset(): void {
   player1.score = 0;
   player2.score = 0;
 
-  player1.button.textContent = "0";
-  player2.button.textContent = "0";
+  player1.display.textContent = "0";
+  player2.display.textContent = "0";
 
-  player1.button.classList.remove("has-text-success", "has-text-danger");
-  player2.button.classList.remove("has-text-success", "has-text-danger");
+  player1.display.classList.remove("has-text-success", "has-text-danger");
+  player2.display.classList.remove("has-text-success", "has-text-danger");
 
   player1.button.disabled = false;
   player2.button.disabled = false;
