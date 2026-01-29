@@ -1,8 +1,8 @@
 const display1 = document.querySelector("#player1-display")!;
 const display2 = document.querySelector("#player2-display")!;
 const maxPoint = document.querySelector("#max-point")!;
-const button1 = document.querySelector("#player1-button")!;
-const button2 = document.querySelector("#player2-button")!;
+const button1 = document.querySelector("#player1-button")! as HTMLButtonElement;
+const button2 = document.querySelector("#player2-button")! as HTMLButtonElement;
 const resetButton = document.querySelector("#reset-button")!;
 const winningScoreSelect = document.querySelector(
   "#winning-point",
@@ -21,6 +21,8 @@ button1.addEventListener("click", function () {
       isGameOver = true;
       display1.classList.add("has-text-success");
       display2.classList.add("has-text-danger");
+      button1.disabled = true;
+      button2.disabled = true;
     }
   }
 });
@@ -33,6 +35,8 @@ button2.addEventListener("click", function () {
       isGameOver = true;
       display2.classList.add("has-text-success");
       display1.classList.add("has-text-danger");
+      button1.disabled = true;
+      button2.disabled = true;
     }
   }
 });
@@ -52,4 +56,6 @@ function reset(): void {
   display2.textContent = "0";
   display1.classList.remove("has-text-success", "has-text-danger");
   display2.classList.remove("has-text-success", "has-text-danger");
+  button1.disabled = false;
+  button2.disabled = false;
 }

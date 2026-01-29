@@ -18,6 +18,8 @@ button1.addEventListener("click", function () {
             isGameOver = true;
             display1.classList.add("has-text-success");
             display2.classList.add("has-text-danger");
+            button1.disabled = true;
+            button2.disabled = true;
         }
     }
 });
@@ -29,6 +31,8 @@ button2.addEventListener("click", function () {
             isGameOver = true;
             display2.classList.add("has-text-success");
             display1.classList.add("has-text-danger");
+            button1.disabled = true;
+            button2.disabled = true;
         }
     }
 });
@@ -45,5 +49,7 @@ function reset() {
     display2.textContent = "0";
     display1.classList.remove("has-text-success", "has-text-danger");
     display2.classList.remove("has-text-success", "has-text-danger");
+    button1.disabled = false;
+    button2.disabled = false;
 }
 //# sourceMappingURL=app.js.map
