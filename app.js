@@ -16,14 +16,14 @@ const RESET_BUTTON_DEFAULT = "btn btn-secondary";
 
 let score1 = 0;
 let score2 = 0;
-let gamePoint = 1;
+let winningPoint = 1;
 let isGameOver = false;
 
 button1.addEventListener("click", function () {
   if (!isGameOver) {
     score1 += 1;
     display1.textContent = score1;
-    if (score1 === gamePoint) {
+    if (score1 === winningPoint) {
       isGameOver = true;
     }
   }
@@ -33,7 +33,7 @@ button2.addEventListener("click", function () {
   if (!isGameOver) {
     score2 += 1;
     display2.textContent = score2;
-    if (score2 === gamePoint) {
+    if (score2 === winningPoint) {
       isGameOver = true;
     }
   }
