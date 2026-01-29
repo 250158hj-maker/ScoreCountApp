@@ -16,8 +16,8 @@ button1.addEventListener("click", function () {
         display1.textContent = score1.toString();
         if (score1 === winningPoint) {
             isGameOver = true;
-            display1.classList.add("winner");
-            display2.classList.add("loser");
+            display1.classList.add("has-text-success");
+            display2.classList.add("has-text-danger");
         }
     }
 });
@@ -27,8 +27,8 @@ button2.addEventListener("click", function () {
         display2.textContent = score2.toString();
         if (score2 === winningPoint) {
             isGameOver = true;
-            display2.classList.add("winner");
-            display1.classList.add("loser");
+            display2.classList.add("has-text-success");
+            display1.classList.add("has-text-danger");
         }
     }
 });
@@ -43,7 +43,7 @@ function reset() {
     score2 = 0;
     display1.textContent = "0";
     display2.textContent = "0";
-    display1.classList.remove("winner", "loser");
-    display2.classList.remove("winner", "loser");
+    display1.classList.remove("has-text-success", "has-text-danger");
+    display2.classList.remove("has-text-success", "has-text-danger");
 }
 //# sourceMappingURL=app.js.map

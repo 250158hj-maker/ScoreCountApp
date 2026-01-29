@@ -4,43 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Score Keeper</title>
-    <style>
-      #container {
-        text-align: center;
-      }
-      .winner {
-        color: green;
-      }
-      .loser {
-        color: red;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
   </head>
+
   <body>
-    <div id="container">
-      <h1>
-        <span id="player1-display">0</span> 対
-        <span id="player2-display">0</span>
-      </h1>
-      <p>下のボタンを押して得点を管理しよう</p>
-      <p>
-        <label for="winning-point"><b>何点先取？</b></label>
-        <select name="winning-point" id="winning-point">
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-        </select>
-      </p>
-      <button id="player1-button" class="btn btn-primary">+1 Player 1</button>
-      <button id="player2-button" class="btn btn-primary">+1 Player 2</button>
-      <button id="reset-button" class="btn btn-secondary">RESET</button>
-    </div>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-half is-offset-one-quarter">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-2by1">
+                  <img
+                    src="https://images.unsplash.com/photo-1534158914592-062992fbe900?q=80&w=2099&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </figure>
+              </div>
+              <header class="card-header">
+                <p class="card-header-title">卓球得点表</p>
+                <button class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <h1 class="title is-1">
+                    <span id="player1-display">0</span> 対
+                    <span id="player2-display">0</span>
+                  </h1>
+
+                  <p class="subtitle">下のボタンを押して得点を管理しよう</p>
+
+                  <label for="winning-point" class="label is-large is-inline"
+                    >何点先取？</label
+                  >
+                  <div class="select is-rounded">
+                    <select id="winning-point">
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <button
+                  class="is-primary button card-footer-item is-large"
+                  id="player1-button"
+                >
+                  +1 Player 1
+                </button>
+                <button
+                  class="is-info button card-footer-item is-large"
+                  id="player2-button"
+                >
+                  +1 Player 2
+                </button>
+                <button
+                  class="is-danger button card-footer-item is-large"
+                  id="reset-button"
+                >
+                  リセット
+                </button>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <script src="app.js"></script>
   </body>
