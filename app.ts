@@ -25,6 +25,9 @@ const winningScoreSelect = document.querySelector(
 let winningPoint: number = 3; // 最低で3点
 let isGameOver: boolean = false;
 
+const WINNER_STYLE : string = "has-text-success";
+const LOSER_STYLE : string = "has-text-danger";
+
 player1.button.addEventListener("click", function () {
   updateScores(player1, player2);
 });
@@ -46,7 +49,7 @@ function updateScores(player: playerInfo, opponent: playerInfo): void {
     player.display.textContent = player.score.toString();
     if (player.score === winningPoint) {
       isGameOver = true;
-      player.display.classList.add("has-text-success");
+      player.display.classList.add(WINNER_STYLE);
       opponent.display.classList.add("has-text-danger");
       player.button.disabled = true;
       opponent.button.disabled = true;
@@ -62,8 +65,8 @@ function reset(): void {
   player1.display.textContent = "0";
   player2.display.textContent = "0";
 
-  player1.display.classList.remove("has-text-success", "has-text-danger");
-  player2.display.classList.remove("has-text-success", "has-text-danger");
+  player1.display.classList.remove(WINNER_STYLE, "has-text-danger");
+  player2.display.classList.remove(WINNER_STYLE, "has-text-danger");
 
   player1.button.disabled = false;
   player2.button.disabled = false;
