@@ -1,13 +1,15 @@
-declare const display1: Element;
-declare const display2: Element;
+interface playerInfo {
+    score: number;
+    button: HTMLButtonElement;
+    display: Element;
+}
+declare const player1: playerInfo;
+declare const player2: playerInfo;
 declare const maxPoint: Element;
-declare const button1: HTMLButtonElement;
-declare const button2: HTMLButtonElement;
 declare const resetButton: Element;
 declare const winningScoreSelect: HTMLSelectElement;
-declare let score1: number;
-declare let score2: number;
 declare let winningPoint: number;
 declare let isGameOver: boolean;
+declare function updateScores(player: playerInfo, opponent: playerInfo): void;
 declare function reset(): void;
 //# sourceMappingURL=app.d.ts.map
