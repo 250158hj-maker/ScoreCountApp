@@ -38,3 +38,11 @@ button2.addEventListener("click", function () {
     }
   }
 });
+
+resetButton.addEventListener('click', function() {
+  isGameOver = false;
+  score1 = 0;
+  score2 = 0;
+  display1.textContent = 0;
+  display2.textContent = 0;
+})
